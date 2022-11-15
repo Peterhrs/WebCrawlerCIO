@@ -28,7 +28,7 @@ pip install -r requirements.txt
 obs: como o projeto nao esta totalmente finalizado para parar 
 a execucao utilize o comando "CRTL + C"
 4-acesse o sqlitestudio abra o arquivo "bdCrawlerLinks", click na
-tabela e depois e assim conseguira ver todos os links validos salvos
+tabela e depois em dados assim conseguira ver todos os links validos salvos
 ```
 
 ## Melhorias futuras
