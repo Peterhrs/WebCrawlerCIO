@@ -24,7 +24,7 @@ pip install -r requirements.txt
 ```
 1-Crie um clone do projeto localmente
 2-Acesse o terminal na pasta do projeto
-3-Rode o comando "scrapy crawl PegarLinks"
+3-Rode o comando "scrapy crawl getLinks"
 obs: como o projeto nao esta totalmente finalizado para parar 
 a execucao utilize o comando "CRTL + C"
 4-acesse o sqlitestudio abra o arquivo "bdCrawlerLinks", click na
