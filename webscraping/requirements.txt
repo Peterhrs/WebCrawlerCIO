@@ -1,0 +1,3 @@
+python == 3.8.8
+Scrapy == 2.7.1
+SQliteStudio == 3.3.3
