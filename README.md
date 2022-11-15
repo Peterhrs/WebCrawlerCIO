@@ -3,6 +3,11 @@
 
 A ideia nesse projeto era construir um webscraping que capturasse apartir de um link inicial outros links e mineirasse
 mais e mais links, ele cumpre as especificacoes mas na aba de melhoria podera ver que ha muitas coisas ha serem feitas!
+utilizei python e o framework scrapy pois o scrapy se trata de um framework dedicado a criacao de webscraping fazendo
+com que tanto a codificao fosse mais simples como a execucao fosse mais leve e mais rapida.
+principalmente comparada a proposta inicial que foi fazer com selenium.
+todo o projeto desde estudo para criacao ate um modelo estavel foi desenvolvido em 4 dias (11/11, 12/11, 13/11, 14/11) com
+aproximadamente 40 horas de investimento.
 
 
 ## Ambiente
