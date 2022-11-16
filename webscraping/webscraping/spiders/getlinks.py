@@ -4,21 +4,19 @@ class getlinksSpider(scrapy.Spider):
     name = 'getlinks'
     start_urls = ['https://www.alura.com.br/cursos-online-programacao']
 
+    def __init__(self, **kwargs):
+        self.total_links = 0
+        super().__init__(**kwargs)
+
     #pega as tags inteiras que tenham htts dos sites 
     def PegarDadosBruntos(self, response):
-
         Seletor = "//a[contains(@href,'http')]" 
         DadosBrutos = []
         DadosBrutos = response.xpath(Seletor).getall()
         return DadosBrutos
 
-    #quebra as tags em intervalos, dividindo pelo paramentro aspas duplas
-    def quebrarDadosBrutos(self, dados,n):
-            parseallink = dados[n]
-            return parseallink.split('"')
-
     #verifica em qual elemento da lista quebrada de tags o link esta
-    def limparLinksFinais(self, dadoseparado, continuar,links):
+    def limparLinksFinais(self, dadoseparado, links):
         continuar = True
         cont = 1
         #enquanto ele nao capturar o link o while continua
@@ -34,24 +32,16 @@ class getlinksSpider(scrapy.Spider):
     def parse(self, response):
         
         links = []
-        n = 0
         dados  = self.PegarDadosBruntos(response)
-        for i in dados:
-            if i == dados:
-                continuar = False
-            else:
-                continuar = True
 
-            dadoseparado = self.quebrarDadosBrutos(dados,n)
-            n = n + 1
-            links = self.limparLinksFinais(dadoseparado,continuar,links)
-
-        numeros = 1
-        for p in links:
+        for dado in dados:
+            dado_quebrado = dado.split('"')
+            links = self.limparLinksFinais(dado_quebrado, links)
+        self.total_links += len(links)
+        
+        for link in links:
             yield{
-            'link': links[numeros]
+            'link': link
             }
-            url = links[numeros]
+            url = link
             yield scrapy.Request(url = url, callback=self.parse)
-            numeros = numeros + 1
-
